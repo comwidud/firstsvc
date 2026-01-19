@@ -1,5 +1,7 @@
 // 1. 학생 계정 데이터 (임시 예시)
 // 실제 사용 시 이 부분을 수정하면 됩니다.
+const inko = new Inko();
+
 const accounts = [
   {
     studentNo: "10101",
@@ -20,7 +22,11 @@ document.getElementById("searchForm").addEventListener("submit", function (e) {
   e.preventDefault(); // 새로고침 방지
 
   const studentNo = document.getElementById("studentNo").value.trim();
-  const studentName = document.getElementById("studentName").value.trim();
+
+  const rawName = document.getElementById("studentName").value.trim();
+  const studentName = inko.en2ko(rawName);
+
+
   const resultDiv = document.getElementById("result");
 
   // 3. 입력값 확인
